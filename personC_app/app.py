@@ -326,7 +326,7 @@ with st.sidebar:
     </div>
     """.format(THRESHOLD, TEST_METRICS["roc_auc"]), unsafe_allow_html=True)
 
-    st.caption("Built by Team AIFS · Person C")
+    st.caption("AIFS PROJECT")
 
 
 # ═══════════════════════════════════════════════════════════════════════
