@@ -1,0 +1,5 @@
+model,best_cv_auc,best_params
+Random Forest,0.6944262644034218,"{'max_depth': 12, 'max_features': 0.5, 'min_samples_leaf': 3, 'n_estimators': 352}"
+XGBoost,0.6822031636742931,"{'colsample_bytree': np.float64(0.9687496940092467), 'learning_rate': np.float64(0.01303561122512888), 'max_depth': 6, 'min_child_weight': 1, 'n_estimators': 339, 'reg_lambda': np.float64(0.4473636174621265), 'subsample': np.float64(0.7554709158757928)}"
+LightGBM,0.6824365668977659,"{'colsample_bytree': np.float64(0.9895022075365837), 'learning_rate': np.float64(0.020083643144775204), 'min_child_samples': 56, 'n_estimators': 339, 'num_leaves': 65, 'reg_lambda': np.float64(0.5820013372709851), 'subsample': np.float64(0.9932923543227152), 'subsample_freq': 1}"
+SVM (RBF),0.682089004938316,"{'m__C': np.float64(12.691152977202412), 'm__gamma': np.float64(0.06251373574521749)}"

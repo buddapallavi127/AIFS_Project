@@ -1,0 +1,55 @@
+[{"stream_name":"stderr","time":8.664703293,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.664743263,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.664749958,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.664754207,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.313093055,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.313138142,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.313144587,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.313148503,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":27.049562731,"data":"Rebuilt train/test from raw data\n"}
+,{"stream_name":"stdout","time":27.049628759,"data":"train (2620, 12) | test (656, 12)\n"}
+,{"stream_name":"stdout","time":27.049637035,"data":"features: ['ph', 'Hardness', 'Solids', 'Chloramines', 'Sulfate', 'Conductivity', 'Organic_carbon', 'Trihalomethanes', 'Turbidity', 'ph_was_missing', 'Sulfate_was_missing', 'Trihalomethanes_was_missing']\n"}
+,{"stream_name":"stdout","time":27.04964444,"data":"train class %: {0: 61.0, 1: 39.0}\n"}
+,{"stream_name":"stdout","time":29.372786689,"data":"Dummy (majority)     F1=0.000  AUC=0.500  (2s)\n"}
+,{"stream_name":"stdout","time":29.372817703,"data":"Logistic Regression  F1=0.436  AUC=0.493  (0s)\n"}
+,{"stream_name":"stdout","time":29.976511206,"data":"KNN                  F1=0.366  AUC=0.626  (0s)\n"}
+,{"stream_name":"stdout","time":35.08101787,"data":"SVM (RBF)            F1=0.552  AUC=0.686  (5s)\n"}
+,{"stream_name":"stdout","time":35.081049854,"data":"Decision Tree        F1=0.375  AUC=0.587  (0s)\n"}
+,{"stream_name":"stdout","time":46.608097682,"data":"Random Forest        F1=0.401  AUC=0.682  (11s)\n"}
+,{"stream_name":"stdout","time":52.505184412,"data":"Extra Trees          F1=0.395  AUC=0.680  (6s)\n"}
+,{"stream_name":"stdout","time":56.959821771,"data":"Gradient Boosting    F1=0.345  AUC=0.627  (4s)\n"}
+,{"stream_name":"stdout","time":59.436573001,"data":"XGBoost              F1=0.513  AUC=0.653  (2s)\n"}
+,{"stream_name":"stdout","time":654.298242894,"data":"LightGBM             F1=0.515  AUC=0.667  (595s)\n"}
+,{"stream_name":"stdout","time":713.104026422,"data":"Random Forest  best CV AUC = 0.694  (58s)\n"}
+,{"stream_name":"stdout","time":725.557944347,"data":"XGBoost        best CV AUC = 0.682  (12s)\n"}
+,{"stream_name":"stdout","time":4989.783591095,"data":"LightGBM       best CV AUC = 0.682  (4264s)\n"}
+,{"stream_name":"stdout","time":4997.104752557,"data":"SVM (RBF)      best CV AUC = 0.682  (8s)\n"}
+,{"stream_name":"stdout","time":5654.220505512,"data":"Selected model: Soft-Voting Ensemble\n"}
+,{"stream_name":"stdout","time":5978.268553721,"data":"Best OOF threshold = 0.38  (F1 0.600 vs 0.522 at 0.50)\n"}
+,{"stream_name":"stdout","time":5989.543018327,"data":"              precision    recall  f1-score   support\n"}
+,{"stream_name":"stdout","time":5989.543057378,"data":"\n"}
+,{"stream_name":"stdout","time":5989.543065365,"data":" Not potable       0.74      0.48      0.58       400\n"}
+,{"stream_name":"stdout","time":5989.543071979,"data":"     Potable       0.47      0.73      0.57       256\n"}
+,{"stream_name":"stdout","time":5989.543078655,"data":"\n"}
+,{"stream_name":"stdout","time":5989.543110651,"data":"    accuracy                           0.58       656\n"}
+,{"stream_name":"stdout","time":5989.543116783,"data":"   macro avg       0.60      0.61      0.58       656\n"}
+,{"stream_name":"stdout","time":5989.543120521,"data":"weighted avg       0.63      0.58      0.58       656\n"}
+,{"stream_name":"stdout","time":5989.543144058,"data":"\n"}
+,{"stream_name":"stdout","time":6028.236372025,"data":"saved: ['best_model.joblib', 'model_meta.json']\n"}
+,{"stream_name":"stdout","time":6028.361169528,"data":"{'probability_potable': 0.353, 'potable': False, 'threshold': 0.38}\n"}
+,{"stream_name":"stderr","time":6033.48719632,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":6033.487224348,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":6033.676992936,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":6033.677018376,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":6034.480159634,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":6034.578997632,"data":"[NbConvertApp] Writing 532048 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":6037.182961376,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":6037.829957884,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":6037.82998326,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":6037.830183426,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":6037.830399227,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":6037.830632366,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":6037.83086593,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":6037.831086635,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":6037.831377389,"data":"[NbConvertApp] Writing 386489 bytes to __results__.html\n"}
+]

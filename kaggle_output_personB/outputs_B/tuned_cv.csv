@@ -1,0 +1,6 @@
+model,accuracy,balanced_acc,f1,roc_auc,pr_auc
+Soft-Voting Ensemble,0.676,0.636,0.521,0.701,0.614
+Random Forest,0.665,0.618,0.484,0.694,0.606
+LightGBM,0.643,0.624,0.54,0.682,0.588
+XGBoost,0.657,0.63,0.536,0.682,0.596
+SVM (RBF),0.642,0.63,0.555,0.682,0.587
