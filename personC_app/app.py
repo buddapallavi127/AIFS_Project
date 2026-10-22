@@ -231,12 +231,51 @@ def predict_sample(sample: dict) -> dict:
     }
 
 
+@st.cache_resource
+def get_shap_explainer():
+    """Build and cache SHAP TreeExplainer.
+    VotingClassifier (ensemble) cannot be directly passed to TreeExplainer.
+    We extract the primary tree model (XGBoost, consistent with Person B's explainability analysis).
+    """
+    import shap
+    m = model
+    source_name = type(m).__name__
+
+    # If soft-voting ensemble, find a supported tree-based estimator
+    if hasattr(m, "named_estimators_"):
+        if "XGBoost" in m.named_estimators_:
+            target = m.named_estimators_["XGBoost"]
+            source_name = "XGBoost (Ensemble Component)"
+        elif "LightGBM" in m.named_estimators_:
+            target = m.named_estimators_["LightGBM"]
+            source_name = "LightGBM (Ensemble Component)"
+        elif "Random" in m.named_estimators_:
+            target = m.named_estimators_["Random"]
+            source_name = "RandomForest (Ensemble Component)"
+        else:
+            for name, est in m.named_estimators_.items():
+                try:
+                    return shap.TreeExplainer(est), f"{name} (Ensemble Component)"
+                except Exception:
+                    continue
+            raise ValueError("No tree-based estimator found in ensemble for TreeExplainer.")
+        return shap.TreeExplainer(target), source_name
+    elif hasattr(m, "estimators_"):
+        for est in m.estimators_:
+            try:
+                return shap.TreeExplainer(est), f"{type(est).__name__} (Ensemble Component)"
+            except Exception:
+                continue
+        raise ValueError("No tree-based estimator found in ensemble for TreeExplainer.")
+
+    return shap.TreeExplainer(m), source_name
+
+
 def compute_shap_values(X):
     """Compute SHAP values for a single-row DataFrame."""
-    import shap
-    explainer = shap.TreeExplainer(model)
+    explainer, source_name = get_shap_explainer()
     sv = explainer(X)
-    return sv
+    return sv, source_name
 
 
 # ── load CSV results ──────────────────────────────────────────────────
@@ -396,12 +435,14 @@ if page == "🔬 Predict":
                 st.caption("How each feature pushed the prediction towards Safe (+) or Unsafe (−).")
 
                 try:
-                    sv = compute_shap_values(result["X"])
+                    sv, explainer_source = compute_shap_values(result["X"])
                     shap_vals = sv.values[0]
-                    base_val  = sv.base_values[0] if hasattr(sv.base_values, '__len__') else sv.base_values
+                    # If 2D (e.g. binary classification [neg, pos]), pick index 1 for positive class
+                    if hasattr(shap_vals, "ndim") and shap_vals.ndim == 2:
+                        shap_vals = shap_vals[:, 1]
+                    vals = [float(v) for v in shap_vals]
 
                     feat_names = list(result["X"].columns)
-                    vals = list(shap_vals)
                     sorted_idx = sorted(range(len(vals)), key=lambda i: abs(vals[i]), reverse=True)
 
                     fig_shap = go.Figure()
@@ -420,7 +461,7 @@ if page == "🔬 Predict":
                         margin=dict(t=10, b=30, l=150, r=60),
                         paper_bgcolor="rgba(0,0,0,0)",
                         plot_bgcolor="rgba(0,0,0,0)",
-                        xaxis=dict(title="SHAP value (impact on potability)",
+                        xaxis=dict(title=f"SHAP value ({explainer_source})",
                                    gridcolor="rgba(51,65,85,0.5)", zerolinecolor="#475569",
                                    tickfont={"color": "#94a3b8"}),
                         yaxis=dict(tickfont={"color": "#e2e8f0"}),
