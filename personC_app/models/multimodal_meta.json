@@ -1,0 +1,120 @@
+{
+  "vision": {
+    "tss_test_accuracy": 0.9959,
+    "potability_test_roc_auc": 1.0,
+    "potability_test_f1": 0.9886,
+    "feature_importances": {
+      "mean_r": 0.02544042836377744,
+      "mean_g": 0.024538681403986223,
+      "mean_b": 0.02808479413962083,
+      "std_r": 0.030723227329532664,
+      "std_g": 0.024291636708137693,
+      "std_b": 0.01912780302358861,
+      "mean_brightness": 0.02441617106075927,
+      "std_brightness": 0.018040960654681196,
+      "blue_dominance": 0.11925201502109092,
+      "rg_ratio": 0.04726667477748307,
+      "rb_ratio": 0.16197743741617293,
+      "contrast": 0.014871868800778917,
+      "edge_density": 0.29758536801145413,
+      "entropy": 0.022529317352701948,
+      "brown_index": 0.08269180946060845,
+      "green_index": 0.059161806475625724
+    },
+    "features": [
+      "mean_r",
+      "mean_g",
+      "mean_b",
+      "std_r",
+      "std_g",
+      "std_b",
+      "mean_brightness",
+      "std_brightness",
+      "blue_dominance",
+      "rg_ratio",
+      "rb_ratio",
+      "contrast",
+      "edge_density",
+      "entropy",
+      "brown_index",
+      "green_index"
+    ]
+  },
+  "numerical": {
+    "metrics": {
+      "accuracy": 0.9995,
+      "balanced_acc": 0.9864,
+      "precision": 0.9996,
+      "recall": 0.9998,
+      "f1": 0.9997,
+      "roc_auc": 0.9999
+    },
+    "individual_aucs": {
+      "RF": 0.9998,
+      "GB": 0.9999
+    },
+    "features": [
+      "Ammonia (mg/l)",
+      "Biochemical Oxygen Demand (mg/l)",
+      "Dissolved Oxygen (mg/l)",
+      "Orthophosphate (mg/l)",
+      "pH (ph units)",
+      "Temperature (cel)",
+      "Nitrogen (mg/l)",
+      "Nitrate (mg/l)"
+    ],
+    "train_medians": {
+      "Ammonia (mg/l)": 0.021,
+      "Biochemical Oxygen Demand (mg/l)": 1.6,
+      "Dissolved Oxygen (mg/l)": 9.87,
+      "Orthophosphate (mg/l)": 0.04,
+      "pH (ph units)": 7.8,
+      "Temperature (cel)": 11.1,
+      "Nitrogen (mg/l)": 0.4,
+      "Nitrate (mg/l)": 0.9
+    },
+    "feature_ranges": {
+      "Ammonia (mg/l)": [
+        0.0043,
+        0.455
+      ],
+      "Biochemical Oxygen Demand (mg/l)": [
+        0.62,
+        4.5
+      ],
+      "Dissolved Oxygen (mg/l)": [
+        2.9250000000000003,
+        13.0
+      ],
+      "Orthophosphate (mg/l)": [
+        0.002942399999999998,
+        0.36
+      ],
+      "pH (ph units)": [
+        6.3,
+        8.7
+      ],
+      "Temperature (cel)": [
+        3.5,
+        47.0
+      ],
+      "Nitrogen (mg/l)": [
+        0.1,
+        5.65
+      ],
+      "Nitrate (mg/l)": [
+        0.03,
+        39.0
+      ]
+    }
+  },
+  "fusion": {
+    "method": "Dempster-Shafer Evidence Fusion",
+    "vision_base_weight": 0.3,
+    "numerical_base_weight": 0.7
+  },
+  "datasets": {
+    "vision_source": "Zenodo 10.5281/zenodo.19899828 \u2014 TSS Image Classification",
+    "numerical_source": "Nature Scientific Data 10.1038/s41597-025-04715-4 \u2014 Surface Water Quality 1940-2023"
+  }
+}
